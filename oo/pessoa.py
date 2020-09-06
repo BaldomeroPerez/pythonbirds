@@ -1,4 +1,5 @@
 class Pessoa:
+    olhos = 2
     def __init__(self, *filhos, nome=None, idade=35):  # depois de virgula entrou none que estava em baixo
         self.idade = idade
         self.nome = nome  #nome entro no lugar de None
@@ -20,7 +21,13 @@ if __name__ =='__main__':
     luciano.sobrenome="Ramalho"
     #print(luciano.sobrenome)
     del luciano.filhos
-    print(luciano.__dict__)
+    luciano.olhos = 1
+    del luciano.olhos
+    print(luciano.__dict__)  #atributo de instancia (__dict__)
     print(renzo.__dict__)
-
+    Pessoa.olhos = 3
+    print(Pessoa.olhos)
+    print(luciano.olhos)
+    print(renzo.olhos)
+    print(id(Pessoa.olhos), id(luciano.olhos), id(renzo.olhos))
 
