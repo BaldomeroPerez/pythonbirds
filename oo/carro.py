@@ -1,3 +1,33 @@
+class Motor():
+    def __init__(self):
+       self.velocidade = 0
+
+    def acelerar(self):
+        self.velocidade += 1
+
+    def frear(self):
+        self.velocidade -= 2
+        self.velocidade = max(0, self.velocidade)
+
+class Direcao:
+    rotacao_a_direita_dct = {NORTE: LESTE, LESTE: SUL, SUL: OESTE, OESTE:NORTE}
+    rotacao_a_esquerda_dct = {NORTE: OESTE, LESTE: NORTE, SUL: LESTE, OESTE: SUL}
+
+     def __init__(self):
+        self.valor = NORTE
+
+    def girar_a_direita(self):
+        self.valor = self.rotacao_a_direita_dct[self.valor]
+        #if self.valor==NORTE:
+            #self.valor = LESTE
+        #elif self.valor == LESTE:
+            #self.valor = SUL
+        #elif self.valor == SUL:
+            #self.valor = OESTE
+
+    def girar_a_esquerda(self):
+        self.valor = self.rotacao_a_esquerda_dct[self.valor]
+
 """Voce deve criar uma classe carro que vai possuir 2 (dois) atributos compostos por outras duas classes
 1) Motor
 2) Direção
@@ -38,31 +68,31 @@ seguintes atributos:
         >>> # Testando Direcao
         >>> direcao = Direcao()
         >>> direcao.valor
-        "Norte"
+        'Norte'
         >>> direcao.girar_a_direita()
         >>> direcao.valor
-        "Leste"
+        'Leste'
         >>> direcao.girar_a_direita()
         >>> direcao.valor
-        "Sul"
+        'Sul'
         >>> direcao.girar_a_direita()
         >>> direcao.valor
-        "Oeste"
+        'Oeste'
         >>> direcao.girar_a_direita()
         >>> direcao.valor
-        "Norte"
+        'Norte'
         >>> direcao.girar_a_esquerda()
         >>> direcao.valor
-        "Oeste"
+        'Oeste'
         >>> direcao.girar_a_esquerda()
         >>> direcao.valor
-        "Sul"
+        'Sul'
         >>> direcao.girar_a_esquerda()
         >>> direcao.valor
-        "Leste"
+        'Leste'
         >>> direcao.girar_a_esquerda()
         >>> direcao.valor
-        "Norte"
+        'Norte'
         >>> carro = Carro(diretao,motor)
         >>> carro.calcular_velocidade()
         0
@@ -76,14 +106,18 @@ seguintes atributos:
         >>> carro.calcular_velocidade()
         0
         >>>carro.calcular direcao()
-        "Norte"
+        'Norte'
         >>>carro.girar_a_direita()
         >>>carro.calcular direcao()
-        "Leste"
+        'Leste'
         >>>carro.girar_a_esquerda()
         >>>carro.calcular direcao()
-        "Norte"
+        'Norte'
         >>>carro.girar_a_esquerda()
         >>>carro.calcular direcao()
-        "Oeste"
+        'Oeste'
 """
+NORTE = 'Norte'
+LESTE = 'Leste'
+SUL = 'Sul'
+OESTE = 'Oeste'
